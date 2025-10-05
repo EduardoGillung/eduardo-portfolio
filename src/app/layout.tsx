@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/ui/Header";
 import Footer from "./components/ui/Footer";
+import ClientOnly from "./components/ui/ClientOnly";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,12 +28,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Header />
-        {children}
-        <Footer />
+      <head>
+        {/* Inline script: remove attributes injected by browser extensions (e.g. Dark Reader)
+            before React hydrates, to avoid hydration mismatch errors. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var el=document.documentElement; if(!el) return; var attrs=[]; for(var i=0;i<el.attributes.length;i++){attrs.push(el.attributes[i].name);} attrs.forEach(function(name){ if(/^data-darkreader/.test(name)) el.removeAttribute(name); });}catch(e){} })();`,
+          }}
+        />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ClientOnly>
+          <Header />
+          {children}
+          <Footer />
+        </ClientOnly>
       </body>
     </html>
   );

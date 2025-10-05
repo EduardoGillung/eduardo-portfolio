@@ -4,13 +4,11 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="container">
-        <Link href="/" className="logo">
-          MeuPortfolio
-        </Link>
+        <a href="#top" className="logo">Eduardo Gillung</a>
         <nav className="nav">
-          <Link href="/projects">Projetos</Link>
-          <Link href="/about">Sobre</Link>
-          <Link href="/contact">Contato</Link>
+          <a href="#projects">Projetos</a>
+          <a href="#about">Sobre</a>
+          <a href="#contact">Contato</a>
         </nav>
       </div>
     </header>

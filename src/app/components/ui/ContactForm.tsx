@@ -1,3 +1,6 @@
+"use client";
+import React from "react";
+
 export default function ContactForm() {
   return (
     <form className="contact-form" onSubmit={(e) => e.preventDefault()}>

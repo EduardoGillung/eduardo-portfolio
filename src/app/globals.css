@@ -1,11 +1,9 @@
 @import "tailwindcss";
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -23,4 +21,128 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* layout utils */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Landing / scroll-snap */
+.landing-root {
+  min-height: 100vh;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+.page-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  scroll-snap-align: start;
+  padding: 4rem 0;
+}
+.about-section { background: transparent; }
+.projects-section { background: rgba(0,0,0,0.02); }
+.contact-section { background: transparent; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: var(--background);
+  z-index: 40;
+}
+
+.site-header {
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+}
+.nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-footer {
+  border-top: 1px solid rgba(0,0,0,0.06);
+  margin-top: 4rem;
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(0,0,0,0.6);
+}
+
+.hero {
+  margin: 2rem 0;
+}
+.hero .lead {
+  color: rgba(0,0,0,0.7);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.project-card {
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 1rem;
+  border-radius: 8px;
+}
+.project-card .muted {
+  color: rgba(0,0,0,0.6);
+}
+.tech {
+  font-size: 0.85rem;
+  color: rgba(0,0,0,0.55);
+}
+.button {
+  display: inline-block;
+  padding: 0.5rem 0.8rem;
+  background: #111827;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 6px;
+}
+
+.skills {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0.75rem;
+}
+.skills li {
+  background: rgba(0,0,0,0.05);
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .site-header { border-bottom-color: rgba(255,255,255,0.06); }
+  .site-footer { border-top-color: rgba(255,255,255,0.06); color: rgba(255,255,255,0.6); }
+  .project-card { border-color: rgba(255,255,255,0.04); }
+  .button { background: #e5e7eb; color: #111827; }
 }
