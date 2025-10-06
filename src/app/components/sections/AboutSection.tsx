@@ -5,7 +5,7 @@ export default function AboutSection() {
       <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8">
         <div className="flex-1 text-left">
           <h1 className="text-4xl md:text-5xl font-bold mb-2 flex items-center">Eduardo Gillung</h1>
-          <p className="text-lg text-gray-700 mb-4">Fullstack Developer with a degree in Information Systems and 2 years of experience building modern web apps</p>
+          <p className="text-lg text-gray-500 mb-4">Fullstack Developer with a degree in Information Systems and 2 years of experience building modern web apps</p>
         </div>
           <div className="flex-shrink-0">
               <Image
@@ -22,7 +22,7 @@ export default function AboutSection() {
             {/* Bloco Sobre e Experiência */}
       <div className="w-full mt-12">
         <h2 className="text-2xl font-semibold mb-2">About</h2>
-        <p className="text-gray-700 mb-6 max-w-2xl">
+        <p className="text-gray-500 mb-6 max-w-2xl">
           Lately, I’ve been focusing more on frontend development and UI design 
           — bringing ideas to life through interfaces that feel good to use.
            I’m currently open to freelance opportunities and new projects that challenge my creativity and technical skills.
