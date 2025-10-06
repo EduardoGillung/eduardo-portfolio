@@ -1,8 +1,8 @@
 import Image from "next/image";
 export default function AboutSection() {
   return (
-  <section id="about" className="flex flex-col items-center justify-center mx-auto my-16 max-w-3xl px-4 pt-16 md:pt-24" aria-labelledby="about-heading">
-      <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8">
+  <section id="about" className="flex flex-col items-center justify-center mx-auto max-w-3xl px-4 md:pt-24" aria-labelledby="about-heading">
+      <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8 pt-12">
         <div className="flex-1 text-left">
           <h1 className="text-4xl md:text-5xl font-bold mb-2 flex items-center">Eduardo Gillung</h1>
           <p className="text-lg text-gray-500 mb-4">Fullstack Developer with a degree in Information Systems and 2 years of experience building modern web apps</p>
@@ -28,7 +28,7 @@ export default function AboutSection() {
            I’m currently open to freelance opportunities and new projects that challenge my creativity and technical skills.
         </p>
 
-        <h2 className="text-2xl font-semibold mb-4">Work Experience</h2>
+        <h2 className="text-2xl font-semibold py-12">Work Experience</h2>
         <ul className="space-y-4">
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
