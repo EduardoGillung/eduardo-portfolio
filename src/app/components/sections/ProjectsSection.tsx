@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import ProjectCard, { Project } from "../ui/ProjectCard";
 
 const sampleProjects: Project[] = [
@@ -10,7 +11,7 @@ export default function ProjectsSection() {
     <section id="projects" className="flex flex-col items-center justify-center text-center mx-auto max-w-2xl px-4" aria-labelledby="projects-heading">
   <div className="w-full text-center">
   <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">Projects</h1>
-        <p className="lead">Uma seleção de trabalhos e experimentos.</p>
+        <p className="lead">I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {sampleProjects.map((p) => (
