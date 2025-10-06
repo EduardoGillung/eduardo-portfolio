@@ -32,42 +32,22 @@ export default function AboutSection() {
             <div className="flex items-center gap-3">
               <Image src="/logos/atomic.png" alt="Atomic Finance" width={32} height={32} className="rounded-full" />
               <div>
-                <span className="font-semibold">Atomic Finance</span>
-                <div className="text-sm text-gray-500">Bitcoin Protocol Engineer</div>
+                <span className="font-semibold">Planner Dental</span>
+                <div className="text-sm text-gray-500">Fullstack Developer</div>
               </div>
             </div>
-            <span className="text-gray-500 text-sm">Mai 2021 - Out 2022</span>
-          </li>
-          <li className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Image src="/logos/shopify.png" alt="Shopify" width={32} height={32} className="rounded-full" />
-              <div>
-                <span className="font-semibold">Shopify</span>
-                <div className="text-sm text-gray-500">Software Engineer</div>
-              </div>
-            </div>
-            <span className="text-gray-500 text-sm">Jan 2021 - Abr 2021</span>
+            <span className="text-gray-500 text-sm">Mai 2025 - Out 2025</span>
           </li>
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Image src="/logos/nvidia.png" alt="Nvidia" width={32} height={32} className="rounded-full" />
               <div>
-                <span className="font-semibold">Nvidia</span>
-                <div className="text-sm text-gray-500">Software Engineer</div>
+                <span className="font-semibold">O.P.P Sistemas de Saúde</span>
+                <div className="text-sm text-gray-500">Technical Support N2</div>
               </div>
             </div>
             <span className="text-gray-500 text-sm">Jan 2020 - Abr 2020</span>
-          </li>
-          <li className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Image src="/logos/splunk.png" alt="Splunk" width={32} height={32} className="rounded-full" />
-              <div>
-                <span className="font-semibold">Splunk</span>
-                <div className="text-sm text-gray-500">Software Engineer</div>
-              </div>
-            </div>
-            <span className="text-gray-500 text-sm">Jan 2019 - Abr 2019</span>
-          </li>
+          </li> 
         </ul>
       </div>
 
@@ -77,43 +57,23 @@ export default function AboutSection() {
         <ul className="space-y-4">
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Image src="/logos/buildspace.png" alt="Buildspace" width={32} height={32} className="rounded-full" />
-              <div>
-                <span className="font-semibold">Buildspace</span>
-                <div className="text-sm text-gray-500">s3, s4, sf1, s5</div>
-              </div>
-            </div>
-            <span className="text-gray-500 text-sm">2023 - 2024</span>
-          </li>
-          <li className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
               <Image src="/logos/waterloo.png" alt="University of Waterloo" width={32} height={32} className="rounded-full" />
               <div>
-                <span className="font-semibold">University of Waterloo</span>
-                <div className="text-sm text-gray-500">Bachelor&#39;s Degree of Computer Science (BCS)</div>
+                <span className="font-semibold">Santa Cruz Centro Universitário</span>
+                <div className="text-sm text-gray-500">Bachelor&#39;s Degree of Information Systems (BIS)</div>
               </div>
             </div>
             <span className="text-gray-500 text-sm">2016 - 2021</span>
           </li>
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Image src="/logos/lazaridis.png" alt="Wilfrid Laurier University" width={32} height={32} className="rounded-full" />
+              <Image src="/logos/ib.png" alt="UniSantaCruz" width={32} height={32} className="rounded-full" />
               <div>
-                <span className="font-semibold">Wilfrid Laurier University</span>
-                <div className="text-sm text-gray-500">Bachelor&#39;s Degree of Business Administration (BBA)</div>
+                <span className="font-semibold">Roberto Langer Júnior State School</span>
+                <div className="text-sm text-gray-500">High School</div>
               </div>
             </div>
-            <span className="text-gray-500 text-sm">2016 - 2021</span>
-          </li>
-          <li className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Image src="/logos/ib.png" alt="International Baccalaureate" width={32} height={32} className="rounded-full" />
-              <div>
-                <span className="font-semibold">International Baccalaureate</span>
-                <div className="text-sm text-gray-500">IB Diploma</div>
-              </div>
-            </div>
-            <span className="text-gray-500 text-sm">2012 - 2016</span>
+            <span className="text-gray-500 text-sm">2013 - 2019</span>
           </li>
         </ul>
       </div>
