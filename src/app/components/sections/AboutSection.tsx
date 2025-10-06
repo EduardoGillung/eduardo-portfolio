@@ -5,18 +5,18 @@ export default function AboutSection() {
       <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8">
         <div className="flex-1 text-left">
           <h1 className="text-4xl md:text-5xl font-bold mb-2 flex items-center">Eduardo Gillung</h1>
-          <p className="text-lg text-gray-700 mb-4">Desenvolvedor de Software apaixonado por criar soluções e ajudar pessoas. Muito ativo no Twitter.</p>
+          <p className="text-lg text-gray-700 mb-4">Fullstack Developer with a degree in Information Systems and 2 years of experience building modern web apps</p>
         </div>
-        <div className="flex-shrink-0">
-            <Image
-              src="/me.png"
-              alt="Eduardo Gillung"
-              width={144}
-              height={144}
-              className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover shadow-lg"
-              priority
-            />
-        </div>
+          <div className="flex-shrink-0">
+              <Image
+                src="/me.png"
+                alt="Eduardo Gillung"
+                width={144}
+                height={144}
+                className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover shadow-lg"
+                priority
+              />
+          </div>
       </div>
 
             {/* Bloco Sobre e Experiência */}
@@ -30,7 +30,7 @@ export default function AboutSection() {
         <ul className="space-y-4">
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Image src="/logos/atomic.png" alt="Atomic Finance" width={32} height={32} className="rounded-full" />
+              <Image src="/logo-planner.png" alt="Planner Dental" width={32} height={32} className="rounded-full" />
               <div>
                 <span className="font-semibold">Planner Dental</span>
                 <div className="text-sm text-gray-500">Fullstack Developer</div>
@@ -40,7 +40,7 @@ export default function AboutSection() {
           </li>
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Image src="/logos/nvidia.png" alt="Nvidia" width={32} height={32} className="rounded-full" />
+              <Image src="/logo-softmanager.png" alt="Softmanager" width={32} height={32} className="rounded-full object-cover" />
               <div>
                 <span className="font-semibold">O.P.P Sistemas de Saúde</span>
                 <div className="text-sm text-gray-500">Technical Support N2</div>
@@ -57,7 +57,7 @@ export default function AboutSection() {
         <ul className="space-y-4">
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Image src="/logos/waterloo.png" alt="University of Waterloo" width={32} height={32} className="rounded-full" />
+              <Image src="/logo-santacruz.png" alt="Santa Cruz Centro Universitário" width={32} height={32} className="rounded-full" />
               <div>
                 <span className="font-semibold">Santa Cruz Centro Universitário</span>
                 <div className="text-sm text-gray-500">Bachelor&#39;s Degree of Information Systems (BIS)</div>
@@ -67,7 +67,7 @@ export default function AboutSection() {
           </li>
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Image src="/logos/ib.png" alt="UniSantaCruz" width={32} height={32} className="rounded-full" />
+              <Image src="/logo-langer.png" alt="Roberto Langer Júnior State School" width={32} height={32} className="rounded-full" />
               <div>
                 <span className="font-semibold">Roberto Langer Júnior State School</span>
                 <div className="text-sm text-gray-500">High School</div>
