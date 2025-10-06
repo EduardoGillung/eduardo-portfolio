@@ -9,7 +9,7 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="flex flex-col items-center justify-center text-center mx-auto max-w-2xl px-4" aria-labelledby="projects-heading">
   <div className="w-full text-center">
-  <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">Projetos</h1>
+  <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">Projects</h1>
         <p className="lead">Uma seleção de trabalhos e experimentos.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">

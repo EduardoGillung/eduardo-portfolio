@@ -21,12 +21,14 @@ export default function AboutSection() {
 
             {/* Bloco Sobre e Experiência */}
       <div className="w-full mt-12">
-        <h2 className="text-2xl font-semibold mb-2">Sobre</h2>
+        <h2 className="text-2xl font-semibold mb-2">About</h2>
         <p className="text-gray-700 mb-6 max-w-2xl">
-          No final de 2022, decidi focar em projetos próprios e escalar meu negócio SaaS. Já atuei em grandes empresas de tecnologia, participei de hackathons e sou apaixonado por aprender e construir soluções inovadoras.
+          Lately, I’ve been focusing more on frontend development and UI design 
+          — bringing ideas to life through interfaces that feel good to use.
+           I’m currently open to freelance opportunities and new projects that challenge my creativity and technical skills.
         </p>
 
-        <h2 className="text-2xl font-semibold mb-4">Experiência Profissional</h2>
+        <h2 className="text-2xl font-semibold mb-4">Work Experience</h2>
         <ul className="space-y-4">
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -36,7 +38,7 @@ export default function AboutSection() {
                 <div className="text-sm text-gray-500">Fullstack Developer</div>
               </div>
             </div>
-            <span className="text-gray-500 text-sm">Mai 2025 - Out 2025</span>
+            <span className="text-gray-500 text-sm">Fev 2025 - Current</span>
           </li>
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -46,14 +48,14 @@ export default function AboutSection() {
                 <div className="text-sm text-gray-500">Technical Support N2</div>
               </div>
             </div>
-            <span className="text-gray-500 text-sm">Jan 2020 - Abr 2020</span>
+            <span className="text-gray-500 text-sm">Fev 2022 - Jan 2025</span>
           </li> 
         </ul>
       </div>
 
       {/* Bloco Educação */}
       <div className="w-full mt-12">
-        <h2 className="text-2xl font-semibold mb-4">Educação</h2>
+        <h2 className="text-2xl font-semibold mb-4">Education</h2>
         <ul className="space-y-4">
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -63,7 +65,7 @@ export default function AboutSection() {
                 <div className="text-sm text-gray-500">Bachelor&#39;s Degree of Information Systems (BIS)</div>
               </div>
             </div>
-            <span className="text-gray-500 text-sm">2016 - 2021</span>
+            <span className="text-gray-500 text-sm">2020 - 2024</span>
           </li>
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -82,7 +84,7 @@ export default function AboutSection() {
       <div className="w-full mt-12">
         <h2 className="text-2xl font-semibold mb-4">Skills</h2>
         <div className="flex flex-wrap gap-3">
-          {['React', 'Next.js', 'Typescript', 'Node.js', 'Python', 'Go', 'Postgres', 'Docker', 'Kubernetes', 'Java', 'C++'].map(skill => (
+          {['React', 'Next.js', 'Typescript', 'Node.js', 'Python', 'Postgres', 'Docker', 'Java'].map(skill => (
             <span key={skill} className="bg-black text-white px-3 py-1 rounded-md text-sm font-semibold">{skill}</span>
           ))}
         </div>
