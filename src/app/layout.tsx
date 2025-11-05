@@ -1,19 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/ui/Navbar";
+import Header from "./components/ui/Header";
 import Footer from "./components/ui/Footer";
 import ClientOnly from "./components/ui/ClientOnly";
+import ColorBends from "./components/ui/ColorBends";
 
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -37,9 +34,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${instrumentSans.variable} antialiased font-sans`}>
+        <ColorBends />
         <ClientOnly>
-          <Navbar />
+          <Header />
           {children}
           <Footer />
         </ClientOnly>

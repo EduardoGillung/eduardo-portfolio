@@ -1,44 +1,36 @@
 import Image from "next/image";
+import ContentCard from "../ui/ContentCard";
 export default function AboutSection() {
   return (
-  <section id="about" className="flex flex-col items-center justify-center mx-auto max-w-3xl px-4 md:pt-24" aria-labelledby="about-heading">
-      <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8 pt-12">
+    <section id="about" className="pt-24 md:pt-32 pb-16" aria-labelledby="about-heading">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <ContentCard className="w-full">
+        <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8">
         <div className="flex-1 text-left">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2 flex items-center">Eduardo Gillung</h1>
-          <p className="text-lg text-gray-500 mb-4">Fullstack Developer with a degree in Information Systems and 2 years of experience building modern web apps</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-2 flex items-center text-gray-800">Eduardo Gillung</h1>
+          <p className="text-lg text-gray-600 mb-4">Fullstack Developer with a degree in Information Systems and 2 years of experience building modern web apps</p>
         </div>
-          <div className="flex-shrink-0">
-              <Image
-                src="/me.png"
-                alt="Eduardo Gillung"
-                width={144}
-                height={144}
-                className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover shadow-lg"
-                priority
-              />
-          </div>
       </div>
 
             {/* Bloco Sobre e Experiência */}
       <div className="w-full mt-12">
-        <h2 className="text-2xl font-semibold mb-2">About</h2>
-        <p className="text-gray-500 mb-6 max-w-2xl">
-          Lately, I’ve been focusing more on frontend development and UI design 
+        <h2 className="text-2xl font-semibold mb-2 text-gray-800">About</h2>
+        <p className="text-gray-600 mb-6 max-w-2xl">
+          Lately, I&apos;ve been focusing more on frontend development and UI design 
           — bringing ideas to life through interfaces that feel good to use.
-           I’m currently open to freelance opportunities and new projects that challenge my creativity and technical skills.
+           I&apos;m currently open to freelance opportunities and new projects that challenge my creativity and technical skills.
         </p>
-
-        <h2 className="text-2xl font-semibold py-12">Work Experience</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Work Experience</h2>
         <ul className="space-y-4">
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Image src="/logo-planner.png" alt="Planner Dental" width={32} height={32} className="rounded-full" />
               <div>
                 <span className="font-semibold">Planner Dental</span>
-                <div className="text-sm text-gray-500">Fullstack Developer</div>
+                  <div className="text-sm text-gray-600">Front-End Developer</div>
               </div>
             </div>
-            <span className="text-gray-500 text-sm">Fev 2025 - Current</span>
+              <span className="text-gray-600 text-sm">Fev 2025 - Current</span>
           </li>
           <li className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -88,6 +80,8 @@ export default function AboutSection() {
             <span key={skill} className="bg-black text-white px-3 py-1 rounded-md text-sm font-semibold">{skill}</span>
           ))}
         </div>
+        </div>
+      </ContentCard>
       </div>
     </section>
   );
