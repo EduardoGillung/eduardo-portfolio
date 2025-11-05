@@ -23,10 +23,12 @@ export default function ContentCard({ children, className = '' }: ContentCardPro
       ${className}
     `}>
       <Ripple 
-        mainCircleSize={120}
-        mainCircleOpacity={0.15}
-        numCircles={6}
-        className="absolute inset-0 bg-gray"
+        mainCircleSize={180}
+        mainCircleOpacity={0.24}
+        numCircles={8}
+        centerX="100%"
+        centerY="0%"
+        className="absolute inset-0"
       />
       <div className="relative z-10">
         {children}
