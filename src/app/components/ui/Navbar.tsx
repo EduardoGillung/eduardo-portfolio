@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex items-center">
-      <div className="bg-white/20 border backdrop-blur-2xl border-white/20 text-gray-700 rounded-full shadow-lg flex items-center justify-center px-8 py-3 text-sm">
+      <div className="font-semibold text-gray-700 rounded-full flex items-center justify-center px-8 py-3 text-sm">
         <button 
           onClick={() => handleScrollTo('about')} 
           className="mx-4 hover:text-gray-500 transition cursor-pointer"

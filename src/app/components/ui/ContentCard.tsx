@@ -16,8 +16,8 @@ export default function ContentCard({ children, className = '' }: ContentCardPro
       rounded-2xl 
       p-8 
       border 
-      border-white/20 
-      shadow-lg 
+      border-gray-200 
+      shadow-md 
       shadow-black/5
       overflow-hidden
       ${className}

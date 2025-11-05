@@ -4,12 +4,12 @@ import Navbar from './Navbar';
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent ">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-xs">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Título à esquerda */}
           <div className="flex-shrink-0">
-            <h1 className="text-xl md:text-lg font-semibold text-gray-800 hover:text-gray-600 transition-colors">
+            <h1 className="bg-white/5 text-xl md:text-lg font-semibold text-gray-800 hover:text-gray-400 rounded-2xl p-1 px-4">
               <a href="#" className="no-underline">
                 Eduardo Gillung
               </a>
