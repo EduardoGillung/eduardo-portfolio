@@ -1,10 +1,11 @@
 'use client';
 
 import Navbar from './Navbar';
+import LiquidSwitcher from './LiquidSwitcher';
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-xs">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent ">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Título à esquerda */}
@@ -26,8 +27,10 @@ export default function Header() {
             <Navbar />
           </div>
 
-          {/* Espaço para balanceamento */}
-          <div className="flex-shrink-0 w-32"></div>
+          {/* Liquid Switcher à direita */}
+          <div className="flex-shrink-0">
+            <LiquidSwitcher />
+          </div>
         </div>
       </div>
     </header>

@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-instrument-sans)', 'system-ui', 'sans-serif'],
+        bowlby: ['var(--font-bowlby-one)', 'cursive'],
       },
       animation: {
         ripple: "ripple var(--duration,2s) ease calc(var(--i, 0) * 0.2s) infinite",

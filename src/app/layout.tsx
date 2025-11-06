@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
+import { Instrument_Sans, Bowlby_One } from "next/font/google";
 import "./globals.css";
 import Header from "./components/ui/Header";
 import Footer from "./components/ui/Footer";
 import ClientOnly from "./components/ui/ClientOnly";
-import ColorBends from "./components/ui/ColorBends";
-
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const bowlbyOne = Bowlby_One({
+  variable: "--font-bowlby-one",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -34,8 +38,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${instrumentSans.variable} antialiased font-sans`}>
-        <ColorBends />
+      <body className={`${instrumentSans.variable} ${bowlbyOne.variable} antialiased font-sans`}>
         <ClientOnly>
           <Header />
           {children}
