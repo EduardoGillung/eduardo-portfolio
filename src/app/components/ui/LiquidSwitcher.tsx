@@ -35,24 +35,37 @@ const LiquidSwitcher: React.FC<LiquidSwitcherProps> = ({ className = '' }) => {
       });
     };
 
-    trackPrevious(switcher);
-
-    // Theme application
-    const applyTheme = (theme: string) => {
-      document.documentElement.setAttribute('data-theme', theme);
-    };
-
-    // Initial theme
-    const initialTheme = switcher.querySelector('input[type="radio"]:checked') as HTMLInputElement;
-    if (initialTheme) {
-      applyTheme(initialTheme.value);
+    // Initialize theme from localStorage or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.body.setAttribute('data-theme', savedTheme);
+    
+    // Set the correct radio button as checked based on saved theme
+    const themeRadio = switcher.querySelector(`input[value="${savedTheme}"]`) as HTMLInputElement;
+    if (themeRadio) {
+      themeRadio.checked = true;
     }
 
-    // Theme change listener
+    trackPrevious(switcher);
+
+    // Theme change handler
     const handleThemeChange = (e: Event) => {
       const target = e.target as HTMLInputElement;
       if (target.type === 'radio' && target.name === 'theme') {
-        applyTheme(target.value);
+        const theme = target.value;
+        
+        // Apply theme to document and body
+        document.documentElement.setAttribute('data-theme', theme);
+        document.body.setAttribute('data-theme', theme);
+        
+        // Save to localStorage
+        localStorage.setItem('theme', theme);
+        
+        // Add smooth transition class temporarily
+        document.documentElement.style.transition = 'all 0.3s ease';
+        setTimeout(() => {
+          document.documentElement.style.transition = '';
+        }, 300);
       }
     };
 

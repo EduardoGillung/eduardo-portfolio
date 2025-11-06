@@ -8,10 +8,10 @@ const sampleProjects: Project[] = [
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="flex flex-col items-center justify-center text-center mx-auto max-w-2xl px-4" aria-labelledby="projects-heading">
+    <section id="projects" className="py-32 md:py-40 flex flex-col items-center justify-center text-center mx-auto max-w-2xl px-4 transition-colors duration-300" aria-labelledby="projects-heading" style={{ backgroundColor: 'var(--card-bg)', color: 'var(--card-text)' }}>
   <div className="w-full text-center">
-  <h1 className="text-3xl font-bold mb-6 text-center text-gray-800" style={{ fontFamily: 'var(--font-bowlby-one), cursive' }}>Projects</h1>
-        <p className="lead">I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites.</p>
+  <h1 className="text-3xl font-bold mb-6 text-center transition-colors duration-300" style={{ fontFamily: 'var(--font-bowlby-one), cursive', color: 'var(--card-text)' }}>Projects</h1>
+        <p className="lead transition-colors duration-300" style={{ color: 'var(--muted-foreground)' }}>I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {sampleProjects.map((p) => (
