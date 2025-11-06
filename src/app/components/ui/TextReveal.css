@@ -1,0 +1,79 @@
+/* Text Reveal Animation Effect */
+.text-reveal {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.text-reveal__word {
+  opacity: 0;
+  display: inline-block;
+  animation: textReveal 0.1s ease forwards;
+  animation-delay: 1.4s;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+.text-reveal__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e74c3c;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: bgReveal 0.4s ease forwards;
+  animation-delay: 1s;
+  z-index: 1;
+}
+
+.text-reveal:nth-child(1) .text-reveal__bg {
+  background-color: #e74c3c;
+  animation-delay: 1s;
+}
+
+.text-reveal:nth-child(1) .text-reveal__word {
+  animation-delay: 1.4s;
+}
+
+.text-reveal:nth-child(2) .text-reveal__bg {
+  background-color: #3498db;
+  animation-delay: 1.2s;
+}
+
+.text-reveal:nth-child(2) .text-reveal__word {
+  animation-delay: 1.6s;
+}
+
+@keyframes bgReveal {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  51% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
