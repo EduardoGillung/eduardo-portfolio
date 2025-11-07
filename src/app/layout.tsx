@@ -18,7 +18,7 @@ const bowlbyOne = Bowlby_One({
 });
 
 export const metadata: Metadata = {
-  title: "Meu Portfolio",
+  title: "Eduardo Gillung - Front-end Developer",
   description: "Portfolio pessoal criado com Next.js",
 };
 

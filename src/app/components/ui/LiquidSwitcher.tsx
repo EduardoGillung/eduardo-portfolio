@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './LiquidSwitcher.css';
 
 interface LiquidSwitcherProps {
@@ -9,6 +9,7 @@ interface LiquidSwitcherProps {
 
 const LiquidSwitcher: React.FC<LiquidSwitcherProps> = ({ className = '' }) => {
   const switcherRef = useRef<HTMLFieldSetElement>(null);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const switcher = switcherRef.current;
@@ -18,7 +19,6 @@ const LiquidSwitcher: React.FC<LiquidSwitcherProps> = ({ className = '' }) => {
       const radios = el.querySelectorAll('input[type="radio"]') as NodeListOf<HTMLInputElement>;
       let previousValue: string | null = null;
 
-      // Find initially checked radio
       const initiallyChecked = el.querySelector('input[type="radio"]:checked') as HTMLInputElement;
       if (initiallyChecked) {
         previousValue = initiallyChecked.getAttribute("c-option");
@@ -35,12 +35,19 @@ const LiquidSwitcher: React.FC<LiquidSwitcherProps> = ({ className = '' }) => {
       });
     };
 
-    // Initialize theme from localStorage or default to light
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    // Get theme with proper browser check
+    let savedTheme = 'light';
+    
+    if (typeof window !== 'undefined') {
+      savedTheme = localStorage.getItem('theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    }
+    
+    // Apply theme immediately
     document.documentElement.setAttribute('data-theme', savedTheme);
     document.body.setAttribute('data-theme', savedTheme);
     
-    // Set the correct radio button as checked based on saved theme
+    // Set correct radio button
     const themeRadio = switcher.querySelector(`input[value="${savedTheme}"]`) as HTMLInputElement;
     if (themeRadio) {
       themeRadio.checked = true;
@@ -54,15 +61,15 @@ const LiquidSwitcher: React.FC<LiquidSwitcherProps> = ({ className = '' }) => {
       if (target.type === 'radio' && target.name === 'theme') {
         const theme = target.value;
         
-        // Apply theme to document and body
         document.documentElement.setAttribute('data-theme', theme);
         document.body.setAttribute('data-theme', theme);
         
-        // Save to localStorage
-        localStorage.setItem('theme', theme);
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('theme', theme);
+        }
         
-        // Add smooth transition class temporarily
-        document.documentElement.style.transition = 'all 0.3s ease';
+        // Smooth transition
+        document.documentElement.style.transition = 'all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1)';
         setTimeout(() => {
           document.documentElement.style.transition = '';
         }, 300);
@@ -71,16 +78,24 @@ const LiquidSwitcher: React.FC<LiquidSwitcherProps> = ({ className = '' }) => {
 
     switcher.addEventListener('change', handleThemeChange);
 
+    // Mark as ready after setup
+    const readyTimer = setTimeout(() => {
+      setIsReady(true);
+    }, 100);
+
     return () => {
+      clearTimeout(readyTimer);
       switcher.removeEventListener('change', handleThemeChange);
     };
   }, []);
 
   return (
-    <fieldset ref={switcherRef} className={`switcher ${className}`}>
+    <fieldset 
+      ref={switcherRef} 
+      className={`switcher ${isReady ? 'switcher-ready' : 'switcher-loading'} ${className}`}
+    >
       <legend className="switcher__legend">Choose theme</legend>
       
-      {/* Light Mode */}
       <label className="switcher__option">
         <input 
           className="switcher__input" 
@@ -96,7 +111,6 @@ const LiquidSwitcher: React.FC<LiquidSwitcherProps> = ({ className = '' }) => {
         </svg>
       </label>
 
-      {/* Dark Mode */}
       <label className="switcher__option">
         <input 
           className="switcher__input" 
