@@ -15,7 +15,7 @@ const sampleProjects: Project[] = [
     description: "ERP completo para clínicas odontológicas com gestão de pacientes, agendamentos, prontuários digitais e controle financeiro integrado.", 
     tech: ["React", "Node.js", "PostgreSQL", "TypeScript"], 
     url: "#",
-    images: ["/planner.png", "/planner1.png", "/planner2.png", "/planner3.png"]
+    images: ["/logo-planner.png", "/soft.png", "/soft1.png", "/soft3.png"]
   },
 ];
 
@@ -31,7 +31,7 @@ export default function ProjectsSection() {
         </h1>
         <p className="text-lg md:text-xl mb-16 max-w-3xl mx-auto leading-relaxed transition-colors duration-300" 
            style={{ color: 'var(--muted-foreground)' }}>
-          I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites.
+          I&apos;ve worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">

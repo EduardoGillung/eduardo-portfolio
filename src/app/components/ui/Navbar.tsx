@@ -88,8 +88,10 @@ export default function Navbar() {
 
     return () => {
       clearTimeout(mountTimer);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      const timeoutRef = scrollTimeoutRef.current;
+      if (timeoutRef) {
+        clearTimeout(timeoutRef);
       }
       window.removeEventListener('scroll', handleScroll);
       if (rafId) {
