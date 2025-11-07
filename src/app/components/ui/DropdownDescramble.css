@@ -1,0 +1,73 @@
+.dropdown-descramble {
+  display: inline-block;
+  overflow: visible;
+  visibility: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 1.2em;
+}
+
+.letter {
+  display: inline-block;
+  transform: translateY(-103%);
+  transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+  position: relative;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  vertical-align: top;
+  line-height: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.letter:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+}
+
+/* Ensure proper spacing for spaces */
+.letter[data-correct=" "] {
+  width: 0.4em;
+  min-width: 0.4em;
+}
+
+/* Hero title specific styles */
+.hero-title {
+  display: inline-block;
+  width: 100%;
+}
+
+.hero-title .letter {
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+/* Performance optimizations */
+.dropdown-descramble * {
+  transform-style: preserve-3d;
+}
+
+/* Responsive timing adjustments */
+@media (max-width: 768px) {
+  .letter {
+    transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter {
+    transition: transform 0.3s ease;
+  }
+}

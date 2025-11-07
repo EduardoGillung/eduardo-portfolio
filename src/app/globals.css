@@ -6,6 +6,8 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--hero-bg);
+  min-height: 100%;
 }
 
 :root {
@@ -49,6 +51,10 @@ html {
   /* Portfolio theme variables - Light mode */
   --hero-bg: oklch(1 0 0);
   --hero-text: oklch(0.13 0.028 261.692);
+  
+  /* Animated background variables - Light mode */
+  --star-color: rgba(99, 102, 241, 0.3);
+  --star-base-opacity: 0.4;
   --section-bg: oklch(1 0 0);
   --section-text: oklch(0.13 0.028 261.692);
   --card-bg: oklch(1 0 0);
@@ -96,13 +102,18 @@ html {
   --border-color: oklch(0.3 0.05 264);
   --accent-red: oklch(0.7 0.25 20);
   --accent-blue: oklch(0.7 0.15 200);
+  
+  /* Animated background variables - Dark mode */
+  --star-color: rgba(168, 162, 255, 0.6);
+  --star-base-opacity: 0.7;
 }
 
 body {
   font-family: var(--font-instrument-sans, system-ui, sans-serif);
-  background-color: var(--background);
+  background: transparent;
   color: var(--foreground);
   transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
 }
 
 /* layout utils */

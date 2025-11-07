@@ -3,8 +3,8 @@ import GlowEdgeCard from "../ui/GlowEdgeCard";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-16 md:py-24 transition-colors duration-300" 
-             style={{ backgroundColor: 'var(--hero-bg)', color: 'var(--hero-text)' }}
+    <section id="contact" className="relative py-16 md:py-24 transition-colors duration-300 z-10" 
+             style={{ color: 'var(--hero-text)' }}
              aria-labelledby="contact-heading">
       <div className="relative z-10 flex items-center justify-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <GlowEdgeCard>

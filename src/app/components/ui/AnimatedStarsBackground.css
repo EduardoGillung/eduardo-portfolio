@@ -1,0 +1,144 @@
+/* Animated Stars Background */
+.animated-stars-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.stars-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--star-color);
+  opacity: var(--star-opacity);
+  box-shadow: var(--star-glow);
+  animation: twinkle linear infinite;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Layer-specific styles for parallax effect */
+.stars-layer-1 .star {
+  --star-opacity: calc(var(--star-base-opacity) * 1);
+  --star-glow: 0 0 2px var(--star-color);
+}
+
+.stars-layer-2 .star {
+  --star-opacity: calc(var(--star-base-opacity) * 0.75);
+  --star-glow: 0 0 4px var(--star-color);
+}
+
+.stars-layer-3 .star {
+  --star-opacity: calc(var(--star-base-opacity) * 0.5);
+  --star-glow: 0 0 6px var(--star-color);
+}
+
+/* Twinkle animation */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: var(--star-opacity);
+    transform: scale(1);
+  }
+  25% {
+    opacity: calc(var(--star-opacity) * 0.3);
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: calc(var(--star-opacity) * 0.1);
+    transform: scale(0.9);
+  }
+  75% {
+    opacity: calc(var(--star-opacity) * 0.6);
+    transform: scale(1.1);
+  }
+}
+
+/* Light mode stars */
+:root {
+  --star-color: rgba(99, 102, 241, 0.4); /* Indigo with transparency */
+}
+
+.light {
+  --star-color: rgba(99, 102, 241, 0.3); /* Softer indigo for light mode */
+}
+
+/* Dark mode stars */
+.dark {
+  --star-color: rgba(168, 162, 255, 0.6); /* Lighter purple for dark mode */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stars-layer-1 .star {
+    --star-opacity: calc(var(--star-base-opacity) * 0.6);
+  }
+  
+  .stars-layer-2 .star {
+    --star-opacity: calc(var(--star-base-opacity) * 0.45);
+  }
+  
+  .stars-layer-3 .star {
+    --star-opacity: calc(var(--star-base-opacity) * 0.3);
+  }
+}
+
+/* Smooth performance optimizations */
+.star {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Apply floating animation to different layers for parallax effect */
+.stars-layer-1 {
+  animation: float-up-1 60s linear infinite;
+}
+
+.stars-layer-2 {
+  animation: float-up-2 100s linear infinite;
+}
+
+.stars-layer-3 {
+  animation: float-up-3 140s linear infinite;
+}
+
+/* Parallax movement animations */
+@keyframes float-up-1 {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes float-up-2 {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(-200px);
+  }
+}
+
+@keyframes float-up-3 {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(-300px);
+  }
+}

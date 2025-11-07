@@ -21,8 +21,8 @@ const sampleProjects: Project[] = [
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="py-16 md:py-24 flex flex-col items-center justify-center text-center transition-colors duration-300" 
-             style={{ backgroundColor: 'var(--hero-bg)', color: 'var(--hero-text)' }}
+    <section id="projects" className="relative py-16 md:py-24 flex flex-col items-center justify-center text-center transition-colors duration-300 z-10" 
+             style={{ color: 'var(--hero-text)' }}
              aria-labelledby="projects-heading">
       <div className="w-full text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center transition-colors duration-300" 

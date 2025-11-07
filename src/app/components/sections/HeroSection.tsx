@@ -2,7 +2,7 @@ import TextReveal from '../ui/TextReveal';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-32 pb-32 transition-colors duration-300" style={{ backgroundColor: 'var(--hero-bg)', color: 'var(--hero-text)' }}>
+    <section className="relative min-h-screen flex items-center justify-center pt-32 pb-32 transition-colors duration-300 z-10" style={{ color: 'var(--hero-text)' }}>
       <div className="text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
           <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[6rem] xl:text-[7rem] font-normal leading-[0.8] tracking-tight mb-2 transition-colors duration-300 overflow-visible" style={{ fontFamily: 'var(--font-bowlby-one), cursive', color: 'var(--hero-text)', textShadow: '0 0 0 transparent' }}>
