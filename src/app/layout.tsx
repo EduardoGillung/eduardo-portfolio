@@ -20,6 +20,11 @@ const bowlbyOne = Bowlby_One({
 export const metadata: Metadata = {
   title: "Eduardo Gillung - Front-end Developer",
   description: "Portfolio pessoal criado com Next.js",
+  icons: {
+    icon: '/haru.svg',
+    shortcut: '/haru.svg',
+    apple: '/haru.svg',
+  },
 };
 
 export default function RootLayout({
