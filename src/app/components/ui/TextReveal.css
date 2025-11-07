@@ -2,7 +2,7 @@
 .text-reveal {
   position: relative;
   display: inline-block;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .text-reveal__word {
