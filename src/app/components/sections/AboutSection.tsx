@@ -1,6 +1,5 @@
 import WaterRipple from '../ui/WaterRipple';
 import GlowEdgeCard from '../ui/GlowEdgeCard';
-import Image from 'next/image';
 
 export default function AboutSection() {
   return (

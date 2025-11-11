@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "./components/ui/Header";
 import Footer from "./components/ui/Footer";
 import ClientOnly from "./components/ui/ClientOnly";
-import AnimatedStarsBackground from "./components/ui/AnimatedStarsBackground";
+import ColorBends from "./components/ui/ColorBends";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
@@ -45,7 +45,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${instrumentSans.variable} ${bowlbyOne.variable} antialiased font-sans`}>
-        <AnimatedStarsBackground />
+        <ColorBends />
         <ClientOnly>
           <Header />
           {children}
