@@ -1,138 +1,150 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+
+interface Section {
+  id: string;
+  label: string;
+}
+
+const SECTIONS: Section[] = [
+  { id: 'hero', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
+];
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState<string>('hero');
   const [mounted, setMounted] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+  const isScrollingRef = useRef(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleScrollTo = (elementId: string) => {
-    const element = document.getElementById(elementId);
-    if (element) {
-      const headerHeight = 64;
-      const elementPosition = element.offsetTop - headerHeight;
-      
-      // Update active section immediately for visual feedback
-      setActiveSection(elementId);
-      
-      // Clear any pending scroll updates
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
+  // Calcula altura do header dinamicamente
+  const getHeaderOffset = useCallback(() => {
+    return navRef.current?.offsetHeight || 64;
+  }, []);
+
+  // Detecção de seção ativa via scroll
+  const updateActiveSection = useCallback(() => {
+    if (isScrollingRef.current) return;
+
+    const offset = getHeaderOffset();
+    const scrollPosition = window.scrollY + offset;
+
+    // Encontra a seção mais próxima do topo da viewport
+    let currentSection = 'hero'; // Default para hero
+
+    for (let i = SECTIONS.length - 1; i >= 0; i--) {
+      const section = SECTIONS[i];
+      const element = document.getElementById(section.id);
+      if (!element) continue;
+
+      const rect = element.getBoundingClientRect();
+      const elementTop = rect.top + window.scrollY;
+
+      // Se o topo da seção está acima ou próximo do scroll atual
+      if (elementTop <= scrollPosition + offset + 100) {
+        currentSection = section.id;
+        break;
       }
-      
+    }
+
+    if (currentSection !== activeSection) {
+      setActiveSection(currentSection);
+    }
+  }, [activeSection, getHeaderOffset]);
+
+  // Scroll suave com offset dinâmico
+  const scrollToSection = useCallback((sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (!element) return;
+
+    const offset = getHeaderOffset();
+    const elementPosition = element.offsetTop - offset;
+
+    // Feedback imediato - atualiza o estado ANTES do scroll
+    setActiveSection(sectionId);
+    isScrollingRef.current = true;
+
+    // Limpa timeout anterior
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+
+    // Pequeno delay para garantir que a animação CSS seja aplicada
+    requestAnimationFrame(() => {
       window.scrollTo({
         top: elementPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
-    }
-  };
+    });
 
+    // Marca como "scroll induzido" por 800ms para evitar conflito
+    scrollTimeoutRef.current = setTimeout(() => {
+      isScrollingRef.current = false;
+      updateActiveSection(); // Verifica a posição final
+    }, 800);
+  }, [getHeaderOffset, updateActiveSection]);
+
+  // Otimização: throttle no scroll
+  const handleScroll = useCallback(() => {
+    if (!mounted) return;
+    if (isScrollingRef.current) return;
+
+    requestAnimationFrame(updateActiveSection);
+  }, [mounted, updateActiveSection]);
+
+  // Montagem e listeners
   useEffect(() => {
-    // Mount with delay to prevent initial animation
-    const mountTimer = setTimeout(() => {
-      setMounted(true);
-    }, 200);
+    const mountTimer = setTimeout(() => setMounted(true), 100);
 
-    let rafId: number;
-    let isScrolling = false;
+    // Listener único
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
-    const updateActiveSection = () => {
-      const sections = ['about', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 150;
-      let newActiveSection = 'about';
-
-      // Find the current section
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        const element = document.getElementById(section);
-        
-        if (element) {
-          const elementTop = element.offsetTop;
-          
-          if (scrollPosition >= elementTop) {
-            newActiveSection = section;
-            break;
-          }
-        }
-      }
-
-      // Only update if section actually changed
-      if (newActiveSection !== activeSection) {
-        setActiveSection(newActiveSection);
-      }
-
-      isScrolling = false;
+    // Verificação inicial
+    const checkInitial = () => {
+      if (mounted) updateActiveSection();
     };
-
-    const handleScroll = () => {
-      if (!isScrolling && mounted) {
-        isScrolling = true;
-        rafId = requestAnimationFrame(updateActiveSection);
-      }
-    };
-
-    // Initial section detection
-    const initialCheck = () => {
-      if (mounted) {
-        updateActiveSection();
-      }
-    };
-
-    // Wait for mount before attaching scroll listener
-    if (mounted) {
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      initialCheck();
-    }
+    const initialTimer = setTimeout(checkInitial, 150);
 
     return () => {
       clearTimeout(mountTimer);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      const timeoutRef = scrollTimeoutRef.current;
-      if (timeoutRef) {
-        clearTimeout(timeoutRef);
-      }
+      clearTimeout(initialTimer);
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
       window.removeEventListener('scroll', handleScroll);
-      if (rafId) {
-        cancelAnimationFrame(rafId);
-      }
     };
-  }, [activeSection, mounted]);
+  }, [handleScroll, updateActiveSection, mounted]);
+
+  // Atualiza seção ativa ao redimensionar (header pode mudar de altura)
+  useEffect(() => {
+    const handleResize = () => {
+      updateActiveSection();
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [updateActiveSection]);
 
   return (
-    <nav 
+    <nav
       ref={navRef}
-      className={`liquid-nav-container ${mounted ? 'nav-mounted' : 'nav-loading'}`} 
+      className={`liquid-nav-container ${mounted ? 'nav-mounted' : 'nav-loading'}`}
       data-active={activeSection}
       style={{ '--nav-ready': mounted ? '1' : '0' } as React.CSSProperties}
     >
-      <button
-        onClick={() => handleScrollTo('about')}
-        className={`liquid-nav-option ${activeSection === 'about' ? 'active' : ''}`}
-        data-section="about"
-        type="button"
-      >
-        About
-      </button>
-
-      <button
-        onClick={() => handleScrollTo('projects')}
-        className={`liquid-nav-option ${activeSection === 'projects' ? 'active' : ''}`}
-        data-section="projects"
-        type="button"
-      >
-        Projects
-      </button>
-
-      <button
-        onClick={() => handleScrollTo('contact')}
-        className={`liquid-nav-option ${activeSection === 'contact' ? 'active' : ''}`}
-        data-section="contact"
-        type="button"
-      >
-        Contact
-      </button>
+      {SECTIONS.map((section) => (
+        <button
+          key={section.id}
+          onClick={() => scrollToSection(section.id)}
+          className={`liquid-nav-option ${activeSection === section.id ? 'active' : ''}`}
+          data-section={section.id}
+          type="button"
+          aria-current={activeSection === section.id ? 'true' : 'false'}
+        >
+          {section.label}
+        </button>
+      ))}
     </nav>
   );
 }
