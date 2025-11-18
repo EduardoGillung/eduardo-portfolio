@@ -10,12 +10,20 @@ const sampleProjects: Project[] = [
     images: ["/soft.png", "/soft1.png", "/soft3.png", "/soft4.png"]
   },
   { 
+    id: "ong-project", 
+    title: "ONG AJCS", 
+    description: "Plataforma completa para gestão de ONGs com sistema de doações, voluntariado, gerenciamento de projetos sociais e relatórios de impacto.", 
+    tech: ["React", "Vite","TypeScript", "ThreeJS", "TailwindCSS"], 
+    url: "#",
+    images: ["/ong.png", "/ong2.png", "/ong3.png", "/ong4.png"]
+  },
+  { 
     id: "planner-dental", 
     title: "Planner Dental", 
     description: "ERP completo para clínicas odontológicas com gestão de pacientes, agendamentos, prontuários digitais e controle financeiro integrado.", 
     tech: ["React", "Node.js", "PostgreSQL", "TypeScript"], 
     url: "#",
-    images: ["/logo-planner.png", "/soft.png", "/soft1.png", "/soft3.png"]
+    images: ["/plan.png", "/soft.png", "/soft1.png", "/soft3.png"]
   },
 ];
 
@@ -34,7 +42,7 @@ export default function ProjectsSection() {
           I&apos;ve worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites.
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {sampleProjects.map((p) => (
             <ProjectCard key={p.id} project={p} />
           ))}
